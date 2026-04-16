@@ -1,0 +1,17 @@
+name: My Pipeline
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+      - name: Install dependencies
+        run: pip install pytest
+      - name: Run tests
+        run: pytest test_tools.py
